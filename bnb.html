@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <style>
+         .debug div{padding: 0 5px;}
+         .debug div:nth-child(odd) {background: #000;}
+         .debug div:nth-child(even) {background: #777;}
+         .overly-loader {
+         position: fixed;
+         background: #00000033;
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+         z-index: 9;
+         text-align: center;
+         }
+         .spinner-border {margin-top: 50vh;}
+      </style>
+      <style>
+         /* The Modal (background) */
+         .modal {
+         display: none; /* Hidden by default */
+         position: fixed; /* Stay in place */
+         z-index: 1; /* Sit on top */
+         left: 0;
+         top: 0;
+         width: 100%; /* Full width */
+         height: 100%; /* Full height */
+         overflow: auto; /* Enable scroll if needed */
+         background-color: rgb(0,0,0); /* Fallback color */
+         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+         }
+         /* Modal Content/Box */
+         .modal-content {
+         background-color: #fefefe;
+         margin: 15% auto; /* 15% from the top and centered */
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%; /* Could be more or less, depending on screen size */
+         }
+         /* The Close Button */
+         .close {
+         color: #aaa;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         }
+         .close:hover,
+         .close:focus {
+         color: black;
+         text-decoration: none;
+         cursor: pointer;
+         }
+      </style>
+      <style>
+         /* The Modal (background) */
+         .modal2 {
+         display: none; /* Hidden by default */
+         position: fixed; /* Stay in place */
+         z-index: 3; /* Sit on top */
+         left: 0;
+         top: 0;
+         width: 100%; /* Full width */
+         height: 100%; /* Full height */
+         overflow: auto; /* Enable scroll if needed */
+         background-color: rgb(0,0,0); /* Fallback color */
+         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+         }
+         /* Modal Content/Box */
+         .modal-content2 {
+         background-color: #fefefe;
+         margin: 15% auto; /* 15% from the top and centered */
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%; /* Could be more or less, depending on screen size */
+         }
+         /* The Close Button */
+         .close2 {
+         color: #aaa;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         }
+         .close2:hover,
+         .close2:focus {
+         color: black;
+         text-decoration: none;
+         cursor: pointer;
+         }
+      </style>
+   </head>
+   <body>
+      <div class='container mt-5'>
+         <div class="overly-loader" style="display: none">
+            <div class="spinner-border" role="status">
+               <span class="sr-only">Loading...</span>
+            </div>
+         </div>
+         <h2>Interfaces </h2>
+         <div class="alert"></div>
+         <ul class="nav nav-tabs" id="contacts-tabs" role="tablist">
+            <li class="nav-item">
+               <a class="nav-link" id="owner-tab" data-toggle="tab" href="#owner" role="tab" aria-controls="owner" aria-selected="true" onclick="$('#visitor-tab').hide();$('#nuki-tab').hide();">Host</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" id="visitor-tab" data-toggle="tab" href="#visitor" role="tab" aria-controls="visitor" aria-selected="false" onclick="$('#owner-tab').hide();$('#nuki-tab').hide();">Guest</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" id="nuki-tab" data-toggle="tab" href="#nuki" role="tab" aria-controls="nuki" aria-selected="false"  onclick="$('#owner-tab').hide();$('#visitor-tab').hide();">Nuki</a>
+            </li>
+         </ul>
+         <div class="tab-content p-2" id="contacts-tabs">
+            <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
+               <h3>Host</h3>
+               <div class='owner-fields'>
+                  <div class='step step-one'>
+                     <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control price" value="30">
+                     </div>
+                     <div class="form-group">
+                        <label for="depositHost">DepositHost</label>
+                        <input type="text" class="form-control depositHost" value="10">
+                     </div>
+                     <div class="form-group">
+                        <label for="depositGuest">DepositGuest</label>
+                        <input type="text" class="form-control depositGuest" value="10">
+                     </div>
+                     <div class="form-group">
+                        <label for="start_date">Start Date</label>
+                        <input type="text" class="form-control start_date" value="09">
+                     </div>
+                     <div class="form-group">
+                        <label for="dep_date">Departure Date</label>
+                        <input type="text" class="form-control dep_date" value="10">
+                     </div>
+                     <div class="form-group">
+                        <label for="nuki">Nuki</label>
+                        <input type="text" class="form-control nuki" value="0440">
+                     </div>
+                  </div>
+                  <div class='step step-two' style="display:none">
+                     <div class="form-group">
+                        <label for="deposit">Deposit</label>
+                        <input type="text" class="form-control deposit">
+                     </div>
+                  </div>
+                  <div class='step step-three' style="display:none">
+                     <div class="form-group">
+                        <label for="finish-owner">Finish contract</label>
+                        <input type="text" class="form-control finish-owner">
+                     </div>
+                  </div>
+               </div>
+               <div class="btn-group">
+                  <button class="btn btn-primary contract-init">Contract initialisation</button>
+                  <button class="btn btn-primary send-deposit-owner" disabled>Send deposit</button>
+                  <button class="btn btn-primary finish-contract-owner" disabled>Finish contract</button>
+                  <button class="btn btn-danger cancellation" disabled>Cancellation</button>
+               </div>
+            </div>
+            <div class="tab-pane fade" id="visitor" role="tabpanel" aria-labelledby="visitor-tab">
+               <h3>Visitor</h3>
+               <div class="step step-one">
+                  <label for="price"> Price</label>
+                  <input type="text" name="fname" class="form-control" id="price">
+               </div>
+               <div class='step step-two' style="display:none">
+                  <div class="form-group">
+                     <label for="depositGuest">Deposit</label>
+                     <input type="text" class="form-control depositGuest">
+                  </div>
+               </div>
+            <div class='step step-three' style="display:none">
+               <div class="form-group">
+                  <div class="checkbox">
+                     <label><input class="form-control theresIssues" type="checkbox" name="optradio" id="theresIssues">Any Issues?</label>
+                  </div>
+                  <div class="checkbox" id="issueBox1" style="display: none;">
+                     <label><input type="checkbox"  class="form-control noElec" name="optradio">No electricity</label>
+                  </div>
+                  <div class="checkbox"  id="issueBox2"  style="display: none;">
+                     <label><input type="checkbox"  class="form-control noWater" name="optradio" >No water</label>
+                  </div>
+                  <script>/*<div class="btn-group">
+                     <button class="btn btn-primary renewContractOK" id="renewContractOK" disabled>OK</button>
+                     <button class="btn btn-primary renewContractOKCancel" id="modalCancel2">Cancel</button>
+                  </div>*/</script>
+                  </div>
+               </div>
+               <div class='step step-four' style="display:none">
+                  <div class="form-group">
+                     <label for="finish-guest">Finish contract</label>
+                     <input type="text" class="form-control finish-guest">
+                  </div>
+               </div>
+               <div class="btn-group">
+                  <button class="btn btn-primary sendPrice">Send price</button>
+                  <button class="btn btn-primary sendDepositVisitor" disabled>Send Deposit</button>
+                  <button class="btn btn-primary Issues" id="issuesButton" disabled>Issues</button>
+                  <button class="btn btn-primary FinishContractVisitor" disabled>FinishContract</button>
+                  <button class="btn btn-primary cancellation" disabled>Cancellation</button>
+               </div>
+            </div>
+            <div class="tab-pane fade" id="nuki" role="tabpanel" aria-labelledby="nuki-tab">
+               <button class="btn btn-primary nukiBtn" id="nukiInvocation">Invocation</button>
+            </div>
+         </div>
+      </div>
+      <div class="container debug bg-dark my-5" style="max-height: 300; overflow-y: auto; color: white"></div>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/gh/cryptonomic/conseiljs/dist-web/conseiljs.min.js"></script>
+      <script src="main.js"></script>
+      <script>
+
+   $("#theresIssues").change(function()  {
+  // enters here but doesnt toggle!!!
+        $("#issueBox1").toggle();
+        $("#issueBox2").toggle();
+   });
+     
+     
+     </script>
+
+      <script>
+            // Nuki invocation timer
+      var nukiInvocation = document.getElementById("nukiInvocation");
+           
+      var nukiTimer;
+      nukiInvocation.onclick = function(){   
+      
+      var noElec = document.getElementById("noElec");
+      var noWater = document.getElementById("noWater");
+      var renewContractOK = document.getElementById("renewContractOK");
+      renewContractOK.onclick = function(){
+          if(noElec.checked == true || noWater.checker==true){
+                  clearTimeout(nukiTimer);
+            // write what you want to happen after it's canceled
+
+            
+          }
+      }
+   
+      
+      alert("timer has started");
+      nukiTimer = setTimeout(function(){
+          // write your function here to run after 30 mins
+
+          // code
+            alert("30 mins passed");
+      
+      }, 1800000);
+      }
+      </script>
+   </body>
+</html>
