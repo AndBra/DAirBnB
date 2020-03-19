@@ -12,7 +12,7 @@ function getParams(params) {
     return `{"prim":"Pair","args":[ {"prim":"Pair","args":[ {"prim":"Pair","args":[{"prim":"Pair","args":[{"prim":"Pair","args":[     {"prim":"Pair","args":[{"prim":"Pair","args":[{"prim":"Pair","args":[{"prim":"Pair","args":[{"prim":"Pair","args":[{"prim":"Pair","args":[{"prim":"Pair","args":[{"prim":"Pair","args":[{"prim":"False"},{"int":"1"}]},{"string":"tz1RBkXZSiQb3fS7Sg3zbFdPMBFPJUNHdcFo"}]},{"int":"0"}]},{"string":"${depDate}"}]},{"int":"${depositGuest}"}]},{"int":"${depositHost}"}]},{"int":"${mark}"}]},{"string":"${method}"}]},{"prim":"Pair","args":[{"string":"${nuki}"},{"prim":"${interType}"}]}]},{"string":"tz1cjpubPzgzeFbLo45hwHxMiuKqVNuhYeSc"}]},{"int":"${price}"}]},{"string":"${startDate}"}] },{"string":"tz1RT1L2WjS8U6X1ryGiTtVvGS1t1kGxgckF"}]}`;
 }
 
-const contractAddress = 'KT1UfGTASaRGu5jZZ5ZN4XXqaiofrAWzzre5';
+const contractAddress = 'KT1GMBLFcHVixWhd8eqVLpPHmSfBrb5NrKhZ';
 const tezosNode = 'https://tezos-dev.cryptonomic-infra.tech:443';
 const paramFormat = conseiljs.TezosParameterFormat.Micheline;
 const conseilServer = {
@@ -21,15 +21,31 @@ const conseilServer = {
     network: 'babylonnet'
 }
 const networkBlockTime = 30 + 1;
-const secretKey = 'edskRcdzHcoHFpjDZwdmbi44SBL1Wob8RHWfC1V3MZ25d1sJgBzvECUPnAXjddBTyp2BKF4hQfm6PKu5nMKdMefocfP6MdKMmu';
+const secretKey = 'edskRwA1gW2h2CFKpgzt3aCPR5HzCFnk35E9L4FpL7LLMmSo4BbtitJ7kXioJvzzY6JWaw9kL4uw5ZmRXkf4zhUGLhvxCV9fk1';
 let keyStore = {};
 const alphanetFaucetAccount = {
-    "mnemonic": ["push", "annual", "teach", "unique", "paddle", "sense", "pig", "scorpion", "day", "afraid", "regular", "judge", "steak", "taste", "wedding"],
-    "secret": "429142151962c54856a39bf3575d3c9491d266d2",
-    "amount": "28764214107",
-    "pkh": "tz1ZSbwe9uqxU9RjUEas6WwmmfzFweudDbAC",
-    "password": "diTFNeYP1V",
-    "email": "ceemzqmt.ujxiqcmb@tezos.example.org"
+  "mnemonic": [
+    "grass",
+    "struggle",
+    "run",
+    "rent",
+    "glimpse",
+    "prosper",
+    "cart",
+    "bacon",
+    "elite",
+    "distance",
+    "story",
+    "rural",
+    "gossip",
+    "grunt",
+    "mom"
+  ],
+  "secret": "0c29d97153994564707171a1649347462a952a2a",
+  "amount": "9413629629",
+  "pkh": "tz1NNynV2RCqtCgGfEeNY5FaVLNzLTrKWXxo",
+  "password": "meecqTk9d7",
+  "email": "eetwiuaj.rdqpjlay@tezos.example.org"
 };
 
 function clearRPCOperationGroupHash(hash) {
