@@ -4,6 +4,7 @@ Decentralized AirBnB application is developped on two stages the user interface 
 
 
 Backend:
+
 The smart contract is deployed in Babylonnet tezos testnet using tezos faucet public and private keys.
 we used smartPy to implement the smart contract for the simple manual user the tezos community offer as well as the online simulator that is very helpful to test and deploy your contract easily.
 
