@@ -1,4 +1,4 @@
-# DAirBnB
+# dAirBnB
 
 Decentralized AirBnB application is developped on two stages the user interface and the backend smart contract developed with smartPy language in the tezos blockchain.
 
